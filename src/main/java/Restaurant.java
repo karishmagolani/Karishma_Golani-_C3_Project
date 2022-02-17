@@ -18,8 +18,15 @@ public class Restaurant {
     }
 
     public boolean isRestaurantOpen() {
-        return true;
+//        return true;
         //DELETE ABOVE STATEMENT AND WRITE CODE HERE
+        LocalTime currentTime = LocalTime.now();
+        System.out.println("Current Time" + currentTime + openingTime);
+        int compareToOpeningTime = currentTime.compareTo(openingTime);
+        int compareToClosingTime = currentTime.compareTo(closingTime);
+
+        boolean isOpen = compareToOpeningTime >=0 && compareToClosingTime < 0;
+        return  isOpen;
     }
 
     public LocalTime getCurrentTime(){ return  LocalTime.now(); }
