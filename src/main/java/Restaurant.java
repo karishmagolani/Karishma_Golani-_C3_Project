@@ -71,4 +71,7 @@ public class Restaurant {
         return name;
     }
 
+    public int getItemsTotal(List<String> items){
+        return 0;
+    }
 }

@@ -4,6 +4,8 @@ import java.time.Clock;
 import java.time.Instant;
 import java.time.LocalTime;
 import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -75,4 +77,15 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    @Test
+    public void total_order_value_should_be_sum_of_all_items_selected() {
+        List<String> names = new ArrayList<>();
+        names.add("Vegetable lasagne");
+        assertEquals(269, restaurant.getItemsTotal(names));
+    }
+    @Test
+    public void total_order_value_should_be_zero_if_no_items_passed() {
+        List<String> names = new ArrayList<>();
+        assertEquals(0, restaurant.getItemsTotal(names));
+    }
 }
